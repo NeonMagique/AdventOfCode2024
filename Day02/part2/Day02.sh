@@ -7,18 +7,18 @@ check_numbers()
     for ((i = 0; i < ${#numbers[@]} - 1; i++)); do
         difference=$((numbers[i] - numbers[i + 1]))
         if ((difference > 0 && difference <= 3)); then
-            if [ "$type" = "DECREASE" ]; then
-                return 1
-            else
-                type="INCREASE"
-                continue
-            fi
-        fi
-        if ((difference < 0 && difference >= -3)); then
             if [ "$type" = "INCREASE" ]; then
                 return 1
             else
                 type="DECREASE"
+                continue
+            fi
+        fi
+        if ((difference < 0 && difference >= -3)); then
+            if [ "$type" = "DECREASE" ]; then
+                return 1
+            else
+                type="INCREASE"
                 continue
             fi
         fi
