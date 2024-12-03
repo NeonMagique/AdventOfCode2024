@@ -9,7 +9,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include <regex.h>
 
+/// @brief This function will check if it's match the mul pattern and calculate the result only if the bool 'calculate' is true
+/// @param str represent the string where we check the pattern
+/// @param result represent the total we have calculate on this line currently
+/// @param calculate represent if we are allow to calculate or not the mul
+/// @return
 int match_mul(const char *str, int *result, bool calculate)
 {
     int first_nb = 0;
@@ -33,6 +39,9 @@ int match_mul(const char *str, int *result, bool calculate)
     return 0;
 }
 
+/// @brief This function gonna check each pattern on the line
+/// @param line represent the line we are checking
+/// @param calculate represent if we can do the mul action or not
 int check_one_line(char *line, bool *calculate)
 {
     int total_line = 0;
@@ -61,6 +70,9 @@ int check_one_line(char *line, bool *calculate)
     return total_line;
 }
 
+/// @brief This function will read the file "input.txt" and check line by line if it's find pattern like :
+/// don't() / do() / mul(a, b)
+/// @param total_value represent the total of all the value we get from each line
 void read_file(int *total_value)
 {
     FILE *fp = NULL;
@@ -80,9 +92,12 @@ void read_file(int *total_value)
     fclose(fp);
 }
 
-int main()
+int main(void)
 {
     int total_value = 0;
+
     read_file(&total_value);
     dprintf(1, "There is in total %d\n", total_value);
 }
+
+// * Answer should be 72948684
