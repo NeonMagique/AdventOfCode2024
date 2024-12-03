@@ -1,5 +1,10 @@
 #!/usr/bin/bash
 
+# * Check if there is enough args
+if [[ $# == 0 ]]; then
+    exit 84;
+fi
+
 # * Check if the line is safe
 check_numbers()
 {
@@ -37,7 +42,7 @@ while IFS= read -r line; do
         ((safeReportCount++))
         continue
     fi
-done < input.txt
+done < $1
 
 # * Print the result
 echo "$safeReportCount"

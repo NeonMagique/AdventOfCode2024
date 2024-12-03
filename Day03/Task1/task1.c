@@ -87,8 +87,9 @@ int check_one_line(char *line, regex_t *regex)
 }
 
 /// @brief This function will read line by line the content of 'input.txt' file and call the check function
+/// @param filename represent the name of the file we gonna read
 /// @param total_value represent the total of what we gonna calculate on every line
-void read_file(int *total_value)
+void read_file(const char *filename, int *total_value)
 {
     FILE *fp = NULL;
     char *line = NULL;
@@ -96,7 +97,8 @@ void read_file(int *total_value)
     ssize_t read = 0;
     regex_t regex = get_regex();
 
-    fp = fopen("input.txt", "r");
+    // * Can't read file from other folder ??? Why ???
+    fp = fopen(filename, "r");
     if (fp == NULL) {
         perror("Failed: ");
         exit(EXIT_FAILURE);
@@ -108,11 +110,14 @@ void read_file(int *total_value)
     fclose(fp);
 }
 
-int main(void)
+int main(int argc, char **argv)
 {
     int total_value = 0;
 
-    read_file(&total_value);
+    if (argc < 2)
+        return 84;
+
+    read_file(argv[1], &total_value);
     dprintf(1, "There is in total %d\n", total_value);
     calculate_one_mul(NULL, NULL, true);
 }
