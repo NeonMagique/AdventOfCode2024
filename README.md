@@ -5,7 +5,7 @@ I decided to add a unique twist by using a different programming language for ea
 
 | Day | Language  |
 |-----|-----------|
-| 01  | Python    |
+| 01  | AWK       |
 | 02  | Bash      |
 | 03  | C         |
 | 04  | D (Dlang) |
