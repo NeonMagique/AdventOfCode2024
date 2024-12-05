@@ -9,7 +9,7 @@ I decided to add a unique twist by using a different programming language for ea
 | 02  | Bash      |
 | 03  | C         |
 | 04  | D (Dlang) |
-| 05  |           |
+| 05  | Erlang    |
 | 06  |           |
 | 07  |           |
 | 08  |           |
