@@ -11,8 +11,8 @@ I decided to add a unique twist by using a different programming language for ea
 | 04  | D (Dlang) |
 | 05  | Erlang    |
 | 06  |           |
-| 07  |           |
-| 08  |           |
+| 07  | Go Lang   |
+| 08  | Haskell   |
 | 09  |           |
 | 10  |           |
 | 11  |           |
