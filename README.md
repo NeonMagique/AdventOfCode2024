@@ -10,7 +10,7 @@ I decided to add a unique twist by using a different programming language for ea
 | 03  | C         |
 | 04  | D (Dlang) |
 | 05  | Erlang    |
-| 06  |           |
+| 06  | F#        |
 | 07  | Go Lang   |
 | 08  | Haskell   |
 | 09  |           |
