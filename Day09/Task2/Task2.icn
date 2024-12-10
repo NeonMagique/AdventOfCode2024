@@ -1,0 +1,106 @@
+procedure append(l, num, n)
+   every i := 1 to n do {
+      l := put(l, num)
+   }
+   return l
+end
+
+procedure stringToIntList(str)
+   result := list()
+   id := 0
+
+   every i := 1 to *str do {
+      num := integer(str[i])
+      if i % 2 = 0 then {
+         result := append(result, -1, num)
+      } else {
+         result := append(result, id, num)
+         id := id + 1
+      }
+   }
+   return result
+end
+
+procedure printList(l)
+   every i := 1 to *l do {
+      if l[i] ~== -1 then {
+         writes(l[i])
+      } else {
+         writes(".")
+      }
+   }
+   write("")
+end
+
+procedure placeBloc(l, n, num, back)
+   front := 0
+   count := 0
+   while front < back + 1 do {
+      if l[front] = -1 then {
+         count := count + 1
+      } else {
+         count := 0
+      }
+      if count = n then {
+         every i := front - n + 1 to front do {
+            l[i] := num
+         }
+         every j := back + 1 to back + n do {
+            l[j] := -1
+         }
+         return l
+      }
+      front := front + 1
+   }
+   return l
+end
+procedure sortList(l)
+   back := *l
+   while back > 0 do {
+      if l[back] = -1 then {
+         back := back - 1
+      } else {
+         count := 0
+         num := l[back]
+         while l[back] = num do {
+            count := count + 1
+            back := back - 1
+         }
+         l := placeBloc(l, count, num, back)
+      }
+   }
+   return l
+end
+
+procedure countTotal(l)
+   total := 0
+   cursor := 1
+   while cursor < *l do {
+      if l[cursor] ~== -1 then {
+         total := total + (l[cursor] * (cursor - 1))
+      }
+      cursor := cursor + 1
+   }
+   return total
+end
+
+procedure main()
+   file := open("../input.txt", "r")
+
+   if not file then {
+      write("Error: Cannot open the file: ../input.txt")
+      stop()
+   }
+
+   content := read(file)
+   close(file)
+
+   intList := stringToIntList(content)
+   # printList(intList)
+   intList := sortList(intList)
+   # printList(intList)
+   count := countTotal(intList)
+   # * Print the result
+   write(count)
+   # * Answer should be 6221662795602
+end

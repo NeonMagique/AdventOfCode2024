@@ -1,0 +1,78 @@
+procedure append(l, num, n)
+   every i := 1 to n do {
+      l := put(l, num)
+   }
+   return l
+end
+
+procedure stringToIntList(str)
+   result := list()
+   id := 0
+
+   every i := 1 to *str do {
+      num := integer(str[i])
+      if i % 2 = 0 then {
+         result := append(result, -1, num)
+      } else {
+         result := append(result, id, num)
+         id := id + 1
+      }
+   }
+   return result
+end
+
+procedure printList(l)
+   every i := 1 to *l do {
+      writes(l[i])
+   }
+   write("")
+end
+
+procedure sortList(l)
+   front := 0
+   back := *l
+   while front < back do {
+      if l[front] = -1 then {
+         while l[back] = -1 do {
+            back := back - 1
+         }
+         l[front] := l[back]
+         l[back] := -1
+         back := back - 1
+      }
+      front := front + 1
+   }
+   return l
+end
+
+procedure countTotal(l)
+   total := 0
+   cursor := 1
+   while l[cursor] ~== -1 do {
+      total := total + (l[cursor] * (cursor - 1))
+      cursor := cursor + 1
+   }
+   return total
+end
+
+procedure main()
+   file := open("../input.txt", "r")
+
+   if not file then {
+      write("Error: Cannot open the file: ../input.txt")
+      stop()
+   }
+
+   content := read(file)
+
+   close(file)
+
+   intList := stringToIntList(content)
+   # printList(intList)
+   intList := sortList(intList)
+   # printList(intList)
+   # * Print the result
+   count := countTotal(intList)
+   # * Answer should be 6201130364722
+   write(count)
+end

@@ -13,7 +13,7 @@ I decided to add a unique twist by using a different programming language for ea
 | 06  | F#        |
 | 07  | Go Lang   |
 | 08  | Haskell   |
-| 09  |           |
+| 09  | Icon      |
 | 10  |           |
 | 11  |           |
 | 12  |           |
