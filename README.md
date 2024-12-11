@@ -14,7 +14,7 @@ I decided to add a unique twist by using a different programming language for ea
 | 07  | Go Lang   |
 | 08  | Haskell   |
 | 09  | Icon      |
-| 10  |           |
+| 10  | Kotlin    |
 | 11  |           |
 | 12  |           |
 | 13  |           |
