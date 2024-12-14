@@ -18,7 +18,7 @@ I decided to add a unique twist by using a different programming language for ea
 | 11  | Kotlin     |
 | 12  | Lua        |
 | 13  | MatLab     |
-| 14  |            |
+| 14  | Nim        |
 | 15  |            |
 | 16  |            |
 | 17  |            |
